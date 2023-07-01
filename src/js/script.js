@@ -1,56 +1,76 @@
-const inputNota = document.getElementById("noteInput");
-const buttonSave = document.getElementById("saveButton");
-const listNote = document.getElementById("noteList");
+const inputTitleE = document.getElementById("titleInput");
+const inputNotaE = document.getElementById("noteInput");
 
-buttonSave.addEventListener("click", () => {
-  if (inputNota.value === "") {
-    console.log("Error, the text field is empty", Error);
-  } else {
-    const localNota = inputNota.value;
-    const timestamp = Date.now();
-    const storageKey = `note_${timestamp}`;
-    listNote.innerHTML += `
-      <div class="note-item">
-        <p id="nota">${inputNota.value}</p>
-        <div class="btns-actions">
-          <button class="btn-excluir" id="${storageKey}">&#128465;</button>
-          <button class="btn-favoritar" id="favoritar">&#10030;</button>
+// abrir campo de nota
+const revealCamp = document.getElementById("reveal-campos");
+const camp = document.getElementById("campos-adicao");
+revealCamp.addEventListener("click", () => {
+  camp.style.width = "100%";
+});
+
+// fechar campo de nota
+const arrowLeft = document.querySelector(".header-camp i");
+const alertElement = document.getElementById("caixa-alert");
+addCaixaAlert = () => {
+    alertElement.innerHTML+=`
+    <div class="content-alert">
+        <h3 class="text-alert">Sair sem salvar a nota ?</h3>
+        <div class="buttons-alert">
+        <button class="btn-ficar">Ficar</button>
+        <button class="btn-sair">Sair</button>
         </div>
-      </div>
+    </div>
     `;
-    localStorage.setItem(storageKey, localNota);
-    inputNota.value = ""; // Clear the input field after saving
-  }
-});
-
-// Add event listener to the parent container of the notes for delegation
-listNote.addEventListener("click", (event) => {
-  if (event.target.classList.contains("btn-excluir")) {
-    const noteElement = event.target.parentNode.parentNode;
-    const noteKey = event.target.id;
-    localStorage.removeItem(noteKey);
-    noteElement.remove();
-  }
-});
-
-// Retrieve and display the stored notes
-function populateNotes() {
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    if (key.startsWith("note_")) {
-      const note = localStorage.getItem(key);
-      const storageKey = key;
-      listNote.innerHTML += `
-        <div class="note-item">
-          <p id="nota">${note}</p>
-          <div class="btns-actions">
-            <button class="btn-excluir" id="${storageKey}">&#128465;</button>
-            <button class="btn-favoritar" id="favoritar">&#10030;</button>
-          </div>
-        </div>
-      `;
-    }
-  }
 }
+addCaixaAlert();
+arrowLeft.addEventListener("click", () => {
+    if(inputTitleE.value === "", inputNotaE.value === "") {
+        camp.style.width = "0";
+    } else {
+        alertElement.style.display = "block"
+        const ficarElement = document.querySelector('.btn-ficar')
+        const sairElement = document.querySelector('.btn-sair')
+        ficarElement.addEventListener('click', () => {
+            alertElement.style.display = "none"
+        })
+        sairElement.addEventListener('click', () => {
+            inputNotaE.value = ""
+            inputTitleE.value = ""
+            camp.style.width = "0"
+            alertElement.style.display = "none"
+        })
+    }
+});
 
-populateNotes();
+// click para salvar a nota
+const btnSalvoElement = document.getElementById("saveButton");
+const divSalvo = document.querySelector(".click-btn");
+
+eventsClicks = () => {
+    btnSalvoElement.addEventListener("click", () => {
+      divSalvo.style.display = "block";
+    });
+    if(btnSalvoElement.event){
+        
+    } else {
+        arrowLeft.addEventListener("click", () => {
+      if ((inputTitleE.value === "", inputNotaE.value === "")) {
+        camp.style.width = "0";
+      } else {
+        alertElement.style.display = "block";
+        const ficarElement = document.querySelector(".btn-ficar");
+        const sairElement = document.querySelector(".btn-sair");
+        ficarElement.addEventListener("click", () => {
+          alertElement.style.display = "none";
+        });
+        sairElement.addEventListener("click", () => {
+          inputNotaE.value = "";
+          inputTitleE.value = "";
+          camp.style.width = "0";
+          alertElement.style.display = "none";
+        });
+      }
+    });
+    }
+}
+eventsClicks();

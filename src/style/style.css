@@ -1,23 +1,126 @@
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Raleway', sans-serif; */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-a{
-    text-decoration: none;
-}
-li{
-    list-style: none;
-}
 body{
-    background-color: #292929;
-    color: #fafafa;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: #fff;
+    text-align: center;
 }
-.box-nota{
+h1{
+    margin: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-weight: 700;
+}
+.reveal-add{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    padding: 30px;
+    font-size: 6vw;
+    box-shadow: 0 0 15px #505050;
+    border: none;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+.reveal-span{
+    font-size: 10vw;
+}
+
+#campos-adicao{
+    background-color: #d9d9d9;
+    top: 0;
     display: flex;
+    flex-direction: column;
+    position: fixed;
+    transition: 0.7s;
+    width: 100%;
+    overflow: hidden;
+    z-index: 9;
+    height: 100%;
+}
+.header-camp i{
+    font-size: 9vw;
+    left: 0;
+    top: 10px;
+    position: absolute;
+}
+.adicionar-nota{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+#titleInput{
+    margin: 20px 10px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 0;
+    text-align: center;
+    border: none;
+    box-shadow: 0 0 10px #505050;
+    font-size: 24px;
+}
+#noteInput{
+    height: 630px;
+    margin: 0 10px;
+    padding: 15px 0;
+    border: none;
+    text-align: center;
+    font-size: 22px;
+    box-shadow: 0 0 10px #505050;
+    font-family: 'Raleway', sans-serif;
+}
+.btn-salvo{
     padding: 10px;
-    margin: 20px;
-    background-color: #191919;
-    justify-content: space-between;
+    box-shadow: 0 0 10px #505050;
+    border-radius: 100%;
+    position: absolute;
+    background-color: rgb(0, 66, 207);
+    bottom: 20px;
+    right: 15px;
+    color: #fff;
+    font-size: 7vw;
+    border: 2px solid rgb(0, 37, 116);
+}
+.click-btn{
+    position: absolute;
+    background-color: rgb(0, 66, 207);
+    bottom: 30px;
+    right: 75px;
+    padding: 10px;
+    display: none;
+    overflow: hidden;
+    transition: 0.5ms;
+}
+
+#caixa-alert{
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    background-color: #909090;
+    display: none;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 0, 0);
+}
+.content-alert h3{
+    font-size: 5vw;
+    font-family: 'Montserrat', sans-serif;
+}
+.buttons-alert{
+    margin: 10px;
+}
+.buttons-alert button{
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 4vw;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+}
+.btn-sair{
+    background-color: rgb(255, 0, 0);
+    color: #fff;
 }
