@@ -36,7 +36,7 @@ h1{
     flex-direction: column;
     position: fixed;
     transition: 0.7s;
-    width: 100%;
+    width: 0;
     overflow: hidden;
     z-index: 9;
     height: 100%;
@@ -58,12 +58,21 @@ h1{
     padding: 10px 0;
     text-align: center;
     border: none;
-    box-shadow: 0 0 10px #505050;
+    border-bottom: 2px solid rgb(0, 66, 207);
     font-size: 24px;
+    font-weight: 700;
+}
+textarea:focus,
+input:focus,
+select:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
 }
 #noteInput{
     height: 630px;
     margin: 0 10px;
+    font-weight: 600;
     padding: 15px 0;
     border: none;
     text-align: center;
@@ -123,4 +132,35 @@ h1{
 .btn-sair{
     background-color: rgb(255, 0, 0);
     color: #fff;
+}
+
+.notas-adicionadas{
+    margin-top: 100px;
+    text-align: start;
+}
+.notasSalvas{
+    font-size: 8vw;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+#noteList{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.note-item{
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #303030;
+    margin: 20px;
+}
+.note-item h3{
+    font-size: 7vw;
+    font-family: "Montserrat";
+    font-weight: 700;
+}
+.note-item p{
+    font-size: 5vw;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
 }
