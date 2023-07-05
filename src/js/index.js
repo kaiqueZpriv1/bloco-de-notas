@@ -23,15 +23,19 @@ buttonSave.addEventListener("click", () => {
     const storageKey = `note_${timestamp}`;
     listNote.innerHTML += `
       <div class="note-item">
-        <h3 id="title">${inputTitleE.value}</h3>
-        <p id="nota">${inputNotaE.value}</p>
-        <div class="menu-nota">
-          <div class="btns-actions">
-            <button class="btn-excluir" id="${storageKey}">Excluir</button>
-            <button class="btn-favoritar" id="favoritar">Favoritar</button>
+          <div class="texts-nota">
+            <h3 id="title">${inputTitle.value}</h3>
+            <p id="nota">${inputNotaE.value}</p>
           </div>
+          <div class="menu-nota">
+          <i class="ri-draggable openBtns"></i>
+          <i class="ri-close-line closeBtns"></i>
+            <div class="btns-actions">
+             <button class="btn-excluir btnsOptions" id="${storageKey}">Excluir</button>
+              <button class="btn-favoritar btnsOptions" id="favoritar">Favoritar</button>
+            </div>
         </div>
-      </div>
+        </div>
     `;
     localStorage.setItem(
       storageKey,
@@ -59,14 +63,16 @@ function populateNotes() {
       const storageKey = key;
       listNote.innerHTML += `
         <div class="note-item">
-          <h3 id="title">${noteData.title}</h3>
-          <p id="nota">${noteData.nota}</p>
+          <div class="texts-nota">
+            <h3 id="title">${noteData.title}</h3>
+            <p id="nota">${noteData.nota}</p>
+          </div>
           <div class="menu-nota">
-          <i class="ri-draggable"></i>
+          <i class="ri-draggable openBtns"></i>
+          <i class="ri-close-line closeBtns"></i>
             <div class="btns-actions">
-             <button class="btn-excluir" id="${storageKey}">Excluir</button>
-              <button class="btn-favoritar" id="favoritar">Favoritar</button>
-              <button class="btn-download" download>Download</button>
+             <button class="btn-excluir btnsOptions" id="${storageKey}">Excluir</button>
+              <button class="btn-favoritar btnsOptions" id="favoritar">Favoritar</button>
             </div>
         </div>
         </div>
