@@ -5,162 +5,192 @@ font-family: 'Raleway', sans-serif; */
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    background: #fff;
-    text-align: center;
-}
-h1{
-    margin: 20px 0;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    font-weight: 700;
-}
-.reveal-add{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    padding: 30px;
-    font-size: 6vw;
-    box-shadow: 0 0 15px #505050;
-    border: none;
-    border-radius: 10px;
-    margin-top: 50px;
-}
-.reveal-span{
-    font-size: 10vw;
-}
-
-#campos-adicao{
-    background-color: #d9d9d9;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    transition: 0.7s;
-    width: 0;
-    overflow: hidden;
-    z-index: 9;
-    height: 100%;
-}
-.header-camp i{
-    font-size: 9vw;
-    left: 0;
-    top: 10px;
-    position: absolute;
-}
-.adicionar-nota{
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-}
-#titleInput{
-    margin: 20px 10px;
-    font-family: 'Montserrat', sans-serif;
-    padding: 10px 0;
-    text-align: center;
-    border: none;
-    border-bottom: 2px solid rgb(0, 66, 207);
-    font-size: 24px;
-    font-weight: 700;
+:root{
+    --black: rgba(0, 0, 0, 1);
+    --white: rgba(255, 255, 255, 1);
+    --ice: rgba(210, 210, 210, 1);
+    --red: rgba(255, 0, 0, 1);
+    --blue: rgba(0, 0, 255, 1);
+    --green: rgb(0, 255, 0);
+    --linha: rgba(160, 160, 160, 1);
+    --bege: rgb(241, 224, 198);
 }
 textarea:focus,
 input:focus,
 select:focus {
-    box-shadow: 0 0 0 0;
-    border: 0 none;
     outline: 0;
 }
-#noteInput{
-    height: 630px;
-    margin: 0 10px;
-    font-weight: 600;
-    padding: 15px 0;
-    border: none;
+body{
+    background-color: rgba(210, 210, 210, 1);
+    font-family: 'Montserrat', sans-serif;
+}
+header{
+    border-bottom: 1px solid var(--linha);
+}
+.logo{
     text-align: center;
-    font-size: 22px;
-    box-shadow: 0 0 10px #505050;
+    font-size: 8vw;
+    margin: 20px 0 10px 0;
+}
+.search-camp{
+    text-align: center;
+    border-bottom: 1px solid var(--linha);
+}
+#searchInput{
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 5.5vw;
+    margin: 30px 0;
+}
+#searchInput:focus{
+    outline: 2px solid var(--black);
+}
+#searchBtn{
+    position: absolute;
+    right: 55px;
+    top: 105px;
+    border: none;
+    font-size: 6vw;
+}
+.btnAdd-nota{
+    text-align: center;
+    margin: 30px 0;
+}
+.reveal-add{
+    padding: 15px;
+    font-size: 6.5vw;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 6px 6px 4px var(--black);
+}
+#campos-adicao{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: 0.5s;
+    width: 100%;
+    width: 0;
+    background-color: var(--ice);
+    overflow: hidden;
+    z-index: 9;
+}
+.header-camp{
+    margin-top: 10px;
+}
+.left{
+    font-size: 11vw;
+}
+#caixa-alert{
+    position: absolute;
+    top: 200px;
+    left: 55px;
+    transition: 0.5s;
+    display: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--black);
+    overflow: hidden;
+    background-color: var(--bege);
+    padding: 10px 15px;
+}
+.text-caixaAlert h3{
+    font-size: 6.5vw;
+    text-align: center;
+}
+.btns-caixaAlert{
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.btnAlert{
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    padding: 7px 20px;
+    font-size: 5vw;
+    font-weight: 600;
+}
+.btn-sair{
+    background-color: var(--red);
+}
+.adicionar-nota{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+#titleInput{
+    width: 370px;
+    resize: none;
+    height: 60px;
+    font-size: 7vw;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 5px var(--black);
+    background-color: var(--white);
+}
+#noteInput{
+    width: 370px;
+    resize: none;
+    height: 550px;
+    font-size: 6vw;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 5px var(--black);
+    background-color: var(--white);
     font-family: 'Raleway', sans-serif;
 }
 .btn-salvo{
-    padding: 10px;
-    box-shadow: 0 0 10px #505050;
-    border-radius: 100%;
-    position: absolute;
-    background-color: rgb(0, 66, 207);
-    bottom: 20px;
-    right: 15px;
-    color: #fff;
-    font-size: 7vw;
-    border: 2px solid rgb(0, 37, 116);
-}
-.click-btn{
-    position: absolute;
-    background-color: rgb(0, 66, 207);
-    bottom: 30px;
-    right: 75px;
-    padding: 10px;
-    display: none;
-    overflow: hidden;
-    transition: 0.5ms;
-}
-
-#caixa-alert{
-    position: absolute;
-    top: 30px;
-    left: 50px;
-    background-color: #909090;
-    display: none;
-    padding: 10px 20px;
-    text-align: center;
-    border-radius: 10px;
-    border: 2px solid rgb(255, 0, 0);
-}
-.content-alert h3{
-    font-size: 5vw;
-    font-family: 'Montserrat', sans-serif;
-}
-.buttons-alert{
-    margin: 10px;
-}
-.buttons-alert button{
-    padding: 10px 15px;
-    border-radius: 10px;
     border: none;
-    font-size: 4vw;
-    font-weight: 700;
-    font-family: 'Raleway', sans-serif;
+    box-shadow: 0 0 10px var(--black);
+    border-radius: 100%;
+    background-color: var(--blue);
+    position: absolute;
+    bottom: 20px;
+    color: var(--white);
+    right: 15px;
+    padding: 10px;
+    font-size: 7vw;
 }
-.btn-sair{
-    background-color: rgb(255, 0, 0);
-    color: #fff;
+.caixa-erro{
+    position: absolute;
+    top: 220px;
+    background-color: var(--white);
+    width: 320px;
+    box-shadow: 0 0 15px var(--black);
+    border-radius: 5px;
+}
+.caixa-erro i{
+    font-size: 10vw;
+}
+.textErro{
+    text-align: center;
+    font-size: 6vw;
+    margin: 10px 0 30px 0;
+}
+#caixaErro_erro{
+    display: none;
+}
+#caixaErro_title{
+    display: none;
+}
+#caixaErro_nota{
+    display: none;
 }
 
-.notas-adicionadas{
-    margin-top: 100px;
-    text-align: start;
-}
-.notasSalvas{
-    font-size: 8vw;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-}
-#noteList{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.note-item{
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px #303030;
-    margin: 20px;
-}
-.note-item h3{
-    font-size: 7vw;
-    font-family: "Montserrat";
-    font-weight: 700;
-}
-.note-item p{
-    font-size: 5vw;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-}
+
+
+
+
+
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Raleway', sans-serif; */

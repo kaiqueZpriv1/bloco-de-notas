@@ -17,36 +17,59 @@
 </head>
 <body>
     <header>
-        <div class="nav-mobile">
-            <a href="">Favoritos</a>
-            <a href=""></a>
+        <div class="logo">
+            <i class="ri-edit-2-fill">Bloco de notas</i>
         </div>
     </header>
-    <h1>Bloco de Notas</h1>
-    <button class="reveal-add" id="reveal-campos">
-        Adicione sua nota 
-        <br>
-        <span class="reveal-span">+</span>
-    </button>
+    <section class="search-camp">
+        <input type="text" id="searchInput" placeholder="Digite sua busca">
+        <button id="searchBtn" onclick="search()">&#128269;</button>
+    </section>
+    <div class="btnAdd-nota">
+        <button class="reveal-add" id="reveal-campos">
+            Adicione sua nota 
+            <br>
+            <span class="reveal-span">+</span>
+        </button>
+    </div>
     <section id="campos-adicao">
         <div class="header-camp">
-            <i class="ri-arrow-left-line"></i>
-            <div id="caixa-alert"></div>
+            <i class="ri-arrow-left-line left"></i>
+            <div id="caixa-alert">
+                <div class="text-caixaAlert">
+                    <h3> Sair sem salvar a nota ?<h3>
+                </div>
+                <div class="btns-caixaAlert">
+                    <button class="btn-ficar btnAlert" id="ficar">Ficar</button>
+                    <button class="btn-sair btnAlert" id="sair">Sair</button>
+                </div>
+            </div>
         </div>
         <div class="adicionar-nota">
             <textarea type="text" id="titleInput" placeholder="Digite um titulo..."></textarea>
             <textarea type="text" id="noteInput" placeholder="Digite uma nota..."></textarea>
             <button class="btn-salvo" id="saveButton"><i class="ri-check-line"></i></button>
-            <span class="click-btn">Salvo !</span>
+            <div id="caixaErro_erro" class="caixa-erro">
+                <i class="ri-close-line closeErro"></i>
+                <div class="textErro">
+                    <h3>Verifique se todas as caixas de textos estao preenchidas !</h3>
+                </div>
+            </div>
         </div>
     </section>
     <div class="notas-adicionadas">
+        <div class="nav-mobile">
+            <a href="">Notas</a>
+            <a href="">Favoritos</a>
+        </div>
         <h3 class="notasSalvas">Minhas notas
             <i class="ri-arrow-down-line"></i>
         </h3>
         <ul id="noteList"></ul> <!-- armazenados -->
     </div>
     <script src="./src/js/index.js" ></script>
-    <script src="./src/js/script.js"></script>
+    <script src="./src/js/buttons-camp-notas.js"></script>
+    <script src="./src/js/camp-nota-storage.js"></script>
+    <script src="./src/js/search.js"></script>
 </body>
 </html>

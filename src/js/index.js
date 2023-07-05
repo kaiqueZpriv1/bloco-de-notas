@@ -4,41 +4,52 @@ const inputNota = document.getElementById("noteInput");
 const buttonSave = document.getElementById("saveButton");
 const listNote = document.getElementById("noteList");
 
+const erroTitle = document.getElementById('caixaErro_title');
+const erroNota = document.getElementById('caixaErro_nota');
+const erroError = document.getElementById('caixaErro_erro');
+const close = document.querySelector(".closeErro");
+const errosElements = document.querySelector('.caixa-erro');
+close.addEventListener('click', () => {
+  errosElements.style.display = "none"
+})
 buttonSave.addEventListener("click", () => {
-  if (inputNota.value === "" || inputTitle.value === "") {
-    console.log("Error, the text field is empty", Error);
-  } else {
-    const localTitle = inputTitle.value;
-    const localNota = inputNota.value;
+  if (inputNotaE.value === "" || inputTitleE.value === "") {
+    erroError.style.display = "block"
+  }else {
+    buttonSave.style.background = "var(--green)"
+    const localTitle = inputTitleE.value;
+    const localNota = inputNotaE.value;
     const timestamp = Date.now();
     const storageKey = `note_${timestamp}`;
     listNote.innerHTML += `
       <div class="note-item">
-        <h3 id="title">${inputTitle.value}</h3>
-        <p id="nota">${inputNota.value}</p>
-        <div class="btns-actions">
-          <button class="btn-excluir" id="${storageKey}">&#128465;</button>
-          <button class="btn-favoritar" id="favoritar">&#10030;</button>
+        <h3 id="title">${inputTitleE.value}</h3>
+        <p id="nota">${inputNotaE.value}</p>
+        <div class="menu-nota">
+          <div class="btns-actions">
+            <button class="btn-excluir" id="${storageKey}">Excluir</button>
+            <button class="btn-favoritar" id="favoritar">Favoritar</button>
+          </div>
         </div>
       </div>
     `;
     localStorage.setItem(
       storageKey,
-      JSON.stringify({ title: localTitle, nota: localNota })
+      JSON.stringify({ 
+        title: localTitle, 
+        nota: localNota })
     );
   }
 });
-
 // remove nota
 listNote.addEventListener("click", (event) => {
   if (event.target.classList.contains("btn-excluir")) {
-    const noteElement = event.target.parentNode.parentNode;
+    const noteElement = event.target.parentNode.parentNode.parentNode;
     const noteKey = event.target.id;
     localStorage.removeItem(noteKey);
     noteElement.remove();
   }
 });
-
 // Retrieve and display the stored notes
 function populateNotes() {
   for (let i = 0; i < localStorage.length; i++) {
@@ -50,10 +61,14 @@ function populateNotes() {
         <div class="note-item">
           <h3 id="title">${noteData.title}</h3>
           <p id="nota">${noteData.nota}</p>
-          <div class="btns-actions">
-            <button class="btn-excluir" id="${storageKey}">&#128465;</button>
-            <button class="btn-favoritar" id="favoritar">&#10030;</button>
-          </div>
+          <div class="menu-nota">
+          <i class="ri-draggable"></i>
+            <div class="btns-actions">
+             <button class="btn-excluir" id="${storageKey}">Excluir</button>
+              <button class="btn-favoritar" id="favoritar">Favoritar</button>
+              <button class="btn-download" download>Download</button>
+            </div>
+        </div>
         </div>
       `;
     }
