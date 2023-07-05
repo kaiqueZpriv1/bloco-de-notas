@@ -89,7 +89,7 @@ header{
 #caixa-alert{
     position: absolute;
     top: 200px;
-    left: 55px;
+    left: 25px;
     transition: 0.5s;
     display: none;
     border-radius: 10px;
