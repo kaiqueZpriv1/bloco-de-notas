@@ -54,6 +54,7 @@ header{
     top: 105px;
     border: none;
     font-size: 6vw;
+    background: transparent;
 }
 .btnAdd-nota{
     text-align: center;
@@ -187,17 +188,30 @@ header{
 #caixaErro_nota{
     display: none;
 }
-/* campo onde entra as notas na pagina inicial */
-#noteList{
-    margin: 30px 0;
-}
+/* naegacao das notas */
 .nav-mobile{
     background-color: var(--bege);
     display: flex;
     justify-content: space-evenly;
+    margin: 30px 0;
 }
+.nav-mobile a{
+    font-size: 5.5vw;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--black);
+}
+#favList{
+    display: none;
+    transition: 0.5s display;
+}
+/* text indicador */
 .notasSalvas{
     font-size: 7.5vw;
+}
+/* campo onde entra as notas na pagina inicial */
+#noteList{
+    margin: 30px 0;
 }
 /* div da nota */
 .note-item{
@@ -229,8 +243,7 @@ header{
     white-space: nowrap;
 }
 /* campo menu notas */
-.menu-nota{
-}
+
 /* icon de acessar os botoes */
 .menu-nota i{
     position: relative;
