@@ -14,7 +14,6 @@ ficarElement.addEventListener('click', () => {
   alertElement.style.display = "none";
   leftMenu.style.visibility = "visible";
 })
-const buttonSave = document.getElementById("saveButton");
 const sairElement = document.getElementById('sair')
 sairElement.addEventListener('click', () => {
   leftMenu.style.visibility = "visible";
@@ -22,7 +21,6 @@ sairElement.addEventListener('click', () => {
   inputNotaE.value = "";
   alertElement.style.display = "none";
   camp.style.width = "0";
-  buttonSave.style.background = 'var(--blue)'
 });
 leftMenu.addEventListener('click', () => {
   if(inputTitleE.value !== "" || inputNotaE.value !== ""){

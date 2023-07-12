@@ -20,6 +20,7 @@ buttonSave.addEventListener("click", () => {
     const localTitle = inputTitle.value;
     const localNota = inputNota.value;
     const timestamp = Date.now();
+    console.log(timestamp)
     const storageKey = `note_${timestamp}`;
     listNote.innerHTML += `
       <div class="note-item">
